@@ -1,3 +1,12 @@
+<?php
+    //The function will be called when the output buffer is flushed / header request handle
+    ob_start();
+    
+    // hold the new_config file 
+    include("init.php")
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
