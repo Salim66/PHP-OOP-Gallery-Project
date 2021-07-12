@@ -18,7 +18,9 @@
 
                     $found_user = User::findUserById(2);
 
-                    
+                    $user = User::instantiation($found_user);
+
+                    echo $user->username;
 
                    
                 

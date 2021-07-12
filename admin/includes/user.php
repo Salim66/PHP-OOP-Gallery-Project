@@ -56,14 +56,20 @@ class User {
     /**
      * Auto instantiation method
      */
-    private static function instantiation(){
+    public static function instantiation($found_user){
         $the_object = new self;
 
-        $the_object->id         = $found_user['id'];
-        $the_object->username   = $found_user['username'];
-        $the_object->password   = $found_user['password'];
-        $the_object->first_name = $found_user['first_name'];
-        $the_object->last_name  = $found_user['last_name'];
+        // // more better this code below the code 
+        // $the_object->id         = $found_user['id'];
+        // $the_object->username   = $found_user['username'];
+        // $the_object->password   = $found_user['password'];
+        // $the_object->first_name = $found_user['first_name'];
+        // $the_object->last_name  = $found_user['last_name'];
+
+        // this way more easy to understand and esay to assign
+        foreach($the_object as $key => $object){
+            $the_object->$key         = $found_user["$key"];
+        }
 
         return $the_object;
     }
