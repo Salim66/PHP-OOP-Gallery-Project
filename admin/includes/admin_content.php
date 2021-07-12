@@ -5,8 +5,18 @@
         <div class="col-lg-12">
             <h1 class="page-header">
                 Admin
-               
                 <small>Subheading</small>
+
+                <?php
+                
+                    $user = new User();
+                    $result_set = $user->find_all_users();
+
+                    while($row = mysqli_fetch_array($result_set)){
+                        echo $row['username'] ."<br/>";
+                    }
+                
+                ?>
             </h1>
             <ol class="breadcrumb">
                 <li>
