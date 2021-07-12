@@ -67,11 +67,25 @@ class User {
         // $the_object->last_name  = $found_user['last_name'];
 
         // this way more easy to understand and esay to assign
-        foreach($the_object as $key => $object){
-            $the_object->$key         = $found_user["$key"];
+        foreach($the_object as $the_attribute => $value){
+
+            if($the_object->has_the_attribute($the_attribute)){
+                $the_object->the_property = $value;
+            }
+
         }
 
         return $the_object;
+    }
+
+    /**
+     * Create method has or not attribute 
+     */
+    private function has_the_attribute($the_attribute){
+        // get this class properties
+        $object_properties = get_object_vars($this);
+
+        return array_key_exists($the_attribute, $object_properties);
     }
 
 
