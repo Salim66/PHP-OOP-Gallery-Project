@@ -10,17 +10,17 @@
 
                 <?php
                 
-                    // $result_set = User::findAllUsers();
+                    $result_set = User::findAllUsers();
 
-                    // while($row = mysqli_fetch_array($result_set)){
-                    //     echo $row['username'] ."<br/>";
-                    // }
+                    while($row = mysqli_fetch_array($result_set)){
+                        echo $row['username'] ."<br/>";
+                    }
 
-                    $found_user = User::findUserById(2);
+                    // $found_user = User::findUserById(2);
 
-                    $user = User::instantiation($found_user);
+                    // $user = User::instantiation($found_user);
 
-                    echo $user->username;
+                    // echo $user->username;
 
                    
                 

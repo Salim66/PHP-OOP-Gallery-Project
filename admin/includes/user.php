@@ -49,7 +49,12 @@ class User {
         global $database;
 
         $result_set = $database->query($sql);
-        return $result_set;
+        $the_object_array = array();
+
+        while($row = mysqli_fetch_array($result_set)){
+            $the_object_array = self::instantiation($row);
+        }
+        return $the_object_array;
     }
 
     
@@ -67,7 +72,7 @@ class User {
         // $the_object->last_name  = $found_user['last_name'];
 
         // this way more easy to understand and esay to assign
-        foreach($the_object as $the_attribute => $value){
+        foreach($found_user as $the_attribute => $value){
 
             if($the_object->has_the_attribute($the_attribute)){
                 $the_object->the_property = $value;
@@ -84,7 +89,7 @@ class User {
     private function has_the_attribute($the_attribute){
         // get this class properties
         $object_properties = get_object_vars($this);
-
+        // check array key exist or not
         return array_key_exists($the_attribute, $object_properties);
     }
 
