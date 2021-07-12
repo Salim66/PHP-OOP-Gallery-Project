@@ -22,12 +22,16 @@
 
                     // echo $user->username;
 
+                    // $result_set = User::findAllUsers();
 
-                    $users = User::findAllUsers();
+                    // foreach($result_set as $user){
+                    //     echo $user->username;
+                    // }
 
-                    foreach($users as $user){
-                        echo $user->id;
-                    }
+
+                    $user = User::findUserById(2);
+
+                    echo $user->username;
                    
                 
                 ?>

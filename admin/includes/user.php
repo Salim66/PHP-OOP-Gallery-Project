@@ -36,9 +36,9 @@ class User {
         // return $found_user;
 
         // use this way / this way to more short and clear cord
-        $result_set = self::findThisQuery("SELECT * FROM users WHERE id=$user_id LIMIT 1");
-        $found_user = mysqli_fetch_array($result_set);
-        return $found_user;
+        $the_result_array = self::findThisQuery("SELECT * FROM users WHERE id= $user_id LIMIT 1");
+        
+        return !empty($the_result_array)? array_shift($the_result_array) : false;
     }
 
     
