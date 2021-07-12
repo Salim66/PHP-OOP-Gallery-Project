@@ -22,6 +22,20 @@ class Database {
             die('Database connection failed badly' . mysqli_error() );
         }
     }
+
+    // create query method
+    public function query($sql){
+        
+        $result = mysqli_query($this->connection, $sql);
+
+        // check whether the query success or not
+        if(!$result){
+            die("Query Failed");
+        }
+
+        return $result;
+
+    }
 }
 
 // create database class instance
