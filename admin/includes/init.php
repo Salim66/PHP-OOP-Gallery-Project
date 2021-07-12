@@ -1,4 +1,4 @@
 <?php 
+    // initialize all include one file
 
-
-    include('new_config.php');
+    include('config.php');
