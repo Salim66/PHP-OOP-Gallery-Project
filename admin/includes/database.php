@@ -17,11 +17,12 @@ class Database {
 
     // database connection
     public function open_db_connection(){
-        $this->connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+        // $this->connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+        $this->connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
         // check whether the database connect or failed
-        if(mysqli_connect_errno()){
-            die('Database connection failed badly' . mysqli_error() );
+        if($this->connection->connect_errno){
+            die('Database connection failed badly' . $this->connection->connect_errno );
         }
     }
 
@@ -29,7 +30,10 @@ class Database {
     // create query method
     public function query($sql){
         
-        $result = mysqli_query($this->connection, $sql);
+        // $result = mysqli_query($this->connection, $sql);
+        $result = $this->connection->query($sql);
+
+        $this->confirm_query($result);
 
         return $result;
 
@@ -52,8 +56,17 @@ class Database {
      * Escapes special characters in a string for use in an SQL statement, taking into account the current charset of the connection
      */
     public function escape_string($string){
-        $escape_string = mysqli_real_escape_string($this->connection, $string);
+        // $escape_string = mysqli_real_escape_string($this->connection, $string);
+        $escape_string = $this->connection->real_escape_string($string);
         return $escape_string;
+    }
+
+
+    /**
+     * create insert id 
+     */
+    public function insertId(){
+        return $this->connection->insert_id;
     }
 
     
