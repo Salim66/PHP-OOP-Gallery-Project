@@ -10,15 +10,23 @@
 
                 <?php
                 
-                    $result_set = User::findAllUsers();
+                    // $result_set = User::findAllUsers();
 
-                    while($row = mysqli_fetch_array($result_set)){
-                        echo $row['username'] ."<br/>";
-                    }
+                    // while($row = mysqli_fetch_array($result_set)){
+                    //     echo $row['username'] ."<br/>";
+                    // }
 
-                    // $found_user = User::findUserById(2);
+                    $found_user = User::findUserById(2);
 
-                    // echo $found_user['username']."<br>".$found_user['first_name']."<br>".$found_user['last_name']; 
+                    $user = new User();
+
+                    $user->id         = $found_user['id'];
+                    $user->username   = $found_user['username'];
+                    $user->password   = $found_user['password'];
+                    $user->first_name = $found_user['first_name'];
+                    $user->last_name  = $found_user['last_name'];
+
+                    echo $user->id;
                 
                 ?>
 

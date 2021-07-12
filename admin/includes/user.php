@@ -4,6 +4,13 @@
 // Create user class
 class User {
 
+    // create class property
+    public $id;
+    public $username;
+    public $password;
+    public $first_name;
+    public $last_name; 
+
 
     /**
      * Find all user from the database
