@@ -16,7 +16,7 @@ function my_autoloader($class){
     if(file_exists($the_path)){
         require_once($the_path);
     }else {
-        die("The file named {$class}.php was not found anywhere....");
+        die("The file named {$class}.php not found anywhere....");
     }
 
     

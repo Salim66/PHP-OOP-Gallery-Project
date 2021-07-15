@@ -3,7 +3,7 @@
     ob_start();
     
     // hold the all files 
-    include("init.php")
+    require_once("init.php")
 
 ?>
 

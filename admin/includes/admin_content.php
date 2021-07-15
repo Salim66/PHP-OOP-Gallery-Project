@@ -32,7 +32,6 @@
                     $user = User::findUserById(2);
 
                     echo $user->username;
-                   
                 
                 ?>
 
