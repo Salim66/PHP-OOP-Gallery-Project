@@ -150,6 +150,9 @@ class User {
         $sql .= "last_name= '".$database->escape_string($this->last_name)."' ";
         $sql .= " WHERE id= '".$database->escape_string($this->id)."' ";
 
+        // execute the query
+        $database->query($sql);
+        // check whether the update query successfully affected or not
         return (mysqli_affected_rows($database->connection) == 1) ? true : false;
     }
 
