@@ -28,6 +28,13 @@ class Session {
         }
     }
 
+    // Create logout method
+    public function logout(){
+        unset($_SESSION['user_id']);
+        unset($this->user_id);
+        $this->signed_in = false;
+    }
+
     // Create CheckLogin Method
     private function checkTheLogin(){
         // Check session user_id set or not
