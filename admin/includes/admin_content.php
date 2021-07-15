@@ -10,13 +10,27 @@
 
                 <?php
 
+                    // $user = new User();
+
+                    // $user->username   = "rabbi55";
+                    // $user->password   = "123456";
+                    // $user->first_name = "Fajlay";
+                    // $user->last_name  = "Rabbi";
+
+                    // $user->create();
+
+
                     
-                    $user = User::findUserById(3);
+                    // $user = User::findUserById(3);
 
-                    $user->last_name = "Mahbub";
-                    $user->update();
+                    // $user->last_name = "Mahbub";
+                    // $user->update();
 
 
+                    $user = User::findUserById(2);
+                    $user->delete();
+
+                    
                 
                 ?>
 

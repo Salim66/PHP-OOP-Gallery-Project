@@ -156,5 +156,22 @@ class User {
         return (mysqli_affected_rows($database->connection) == 1) ? true : false;
     }
 
+    /**
+     * User Delete Method
+     */
+    public function delete(){
+        global $database;
+        // delete query
+        $sql = "DELETE FROM users ";
+        $sql .= "WHERE id= " .$database->escape_string($this->id);
+        $sql .= " LIMIT 1";
+
+        // execute the query
+        $database->query($sql);
+
+        // check whether the delete successfully affected or not
+        return (mysqli_affected_rows($database->connection) == 1) ? true : false;
+    }
+
 
 }
