@@ -74,7 +74,7 @@ class User {
         // this way more easy to understand and esay to assign
         foreach($found_user as $the_attribute => $value){
 
-            if($the_object->has_the_attribute($the_attribute)){
+            if($the_object->hasTheAttribute($the_attribute)){
                 $the_object->$the_attribute = $value;
             }
 
@@ -86,7 +86,7 @@ class User {
     /**
      * Create method has or not attribute 
      */
-    private function has_the_attribute($the_attribute){
+    private function hasTheAttribute($the_attribute){
         // get this class properties
         $object_properties = get_object_vars($this);
         // check array key exist or not
