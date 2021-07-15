@@ -65,9 +65,9 @@ class Database {
     /**
      * create insert id 
      */
-    public function insertId(){
-        return $this->connection->insert_id;
-    }
+    // public function theInsertId(){
+    //     return $this->connection->insert_id;
+    // }
 
     
 }

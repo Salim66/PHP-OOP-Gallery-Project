@@ -128,7 +128,13 @@ class User {
         $sql .= $database->escape_string($this->first_name)."', '";
         $sql .= $database->escape_string($this->last_name)."')";
 
-        
+        // check whether the query successfully store or not
+        if($database->query($sql)){
+            $this->id = $database->theInsertId();
+            return true;
+        }else {
+            return false;
+        }
     }
 
 
