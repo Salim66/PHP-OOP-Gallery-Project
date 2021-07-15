@@ -63,11 +63,11 @@ class Database {
 
 
     /**
-     * create insert id 
+     * get insert last id 
      */
-    // public function theInsertId(){
-    //     return $this->connection->insert_id;
-    // }
+    public function theInsertId(){
+        return mysqli_insert_id($this->connection); // Returns the auto generated id used in the last query
+    }
 
     
 }

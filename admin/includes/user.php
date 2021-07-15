@@ -130,7 +130,7 @@ class User {
 
         // check whether the query successfully store or not
         if($database->query($sql)){
-            $this->id = $database->theInsertId();
+            $this->id = $database->theInsertId(); // return the inserted last id
             return true;
         }else {
             return false;
