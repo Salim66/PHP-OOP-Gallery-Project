@@ -29,7 +29,7 @@ class User {
      * Find specific user by user id
      */
     public static function findUserById($user_id){
-        // global $database;
+        global $database;
 
         // $result_set = $database->query("SELECT * FROM users WHERE id=$user_id LIMIT 1");
         // $found_user = mysqli_fetch_array($result_set);
@@ -97,7 +97,7 @@ class User {
     /**
      * User verify from the database
      */
-    public static function verify_user(){
+    public static function verify_user($username, $password){
         // before we sending data into database first we clean up the string / unnessary token and symbol
         global $database;
         $username = $database->escape_string($username);
@@ -111,7 +111,7 @@ class User {
          // use this way / this way to more short and clear cord
          $the_result_array = self::findThisQuery($sql);
          return !empty($the_result_array)? array_shift($the_result_array) : false;
-         
+
     }
 
 

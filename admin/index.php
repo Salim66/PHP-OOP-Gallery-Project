@@ -1,5 +1,14 @@
 <?php include("includes/header.php"); ?>
 
+    <?php
+    
+        // check whether the user is not login then , kikout the admin panel
+        if(!$session->isSignedIn()){
+            redirect("login.php");
+        }
+
+    ?>
+
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             
