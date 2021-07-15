@@ -5,13 +5,27 @@
 class Session {
 
     // Create class property
-    private $signed_in;
+    private $signed_in = false;
     public $user_id;
 
     // Create constructor
     function __construct()
     {
         session_start();
+        $this->checkTheLogin();
+    }
+
+    // check user is signed in
+    public function isSignedIn(){
+        return $this->signed_in;
+    }
+
+    // Create login method
+    public function login($user){
+        if($user){
+            $this->user_id = $_SESSION['user_id'] = $user->id;
+            $this->signed_in = true;
+        }
     }
 
     // Create CheckLogin Method
