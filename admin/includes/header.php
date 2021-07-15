@@ -3,7 +3,13 @@
     ob_start();
     
     // hold the all files 
-    require_once("init.php")
+    require_once("init.php");
+
+    
+    // check whether the user is not login then , kikout the admin panel
+    if(!$session->isSignedIn()){
+        redirect("login.php");
+    }
 
 ?>
 
