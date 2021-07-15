@@ -17,16 +17,23 @@ if(isset($_POST['submit'])){
 
     // Method to check database user
 
-    $user_fount = User::verify_user($username, $password);
-
-
-    if($user_fount){
-        $session->login($user_fount);
-        redirect("index.php");
+    if($username == "" || $password == ""){
+        $the_message = "All field are required!";
     }else {
-        $the_message = "Your username and password does not match!";
+
+        $user_fount = User::verify_user($username, $password);
+
+
+        if($user_fount){
+            $session->login($user_fount);
+            redirect("index.php");
+        }else {
+            $the_message = "Your username and password does not match!";
+        }
+
     }
 }else {
+    $the_message = "";
     $username = "";
     $password = "";
 }
@@ -38,19 +45,19 @@ if(isset($_POST['submit'])){
 <div class="col-md-4 col-md-offset-3">
 
     <h4 class="text-center text-info text-uppercase">Login</h4>
-    <h4 class="bg-danger"></h4>
+    <h4 class="bg-danger"><?php echo $the_message; ?></h4>
         
     <form id="login-id" action="" method="post">
         
         <div class="form-group">
             <label for="username" style="color: #777;">Username</label>
-            <input type="text" class="form-control" name="username" autocomplete="off">
+            <input type="text" class="form-control" name="username" autocomplete="off" value="<?php echo htmlentities($username); ?>">
 
         </div>
 
         <div class="form-group">
             <label for="password" style="color: #777;">Password</label>
-            <input type="password" class="form-control" name="password">
+            <input type="password" class="form-control" name="password" value="<?php echo htmlentities($password); ?>">
             
         </div>
 
