@@ -12,23 +12,23 @@
 
                     // $user = new User();
 
-                    // $user->username   = "rabbi55";
+                    // $user->username   = "riad66";
                     // $user->password   = "123456";
-                    // $user->first_name = "Fajlay";
-                    // $user->last_name  = "Rabbi";
+                    // $user->first_name = "Riad";
+                    // $user->last_name  = "Khan";
 
-                    // $user->create();
+                    // $user->save();
 
 
                     
-                    // $user = User::findUserById(3);
+                    $user = User::findUserById(4);
 
-                    // $user->last_name = "Mahbub";
-                    // $user->update();
+                    $user->last_name = "Uddin";
+                    $user->save();
 
 
-                    $user = User::findUserById(2);
-                    $user->delete();
+                    // $user = User::findUserById(2);
+                    // $user->delete();
 
                     
                 
