@@ -101,7 +101,17 @@ class User {
         // before we sending data into database first we clean up the string / unnessary token and symbol
         global $database;
         $username = $database->escape_string($username);
-        $pass = $database->escape_string($password);
+        $password = $database->escape_string($password);
+
+        $sql = "SELECT * FROM users WHERE ";
+        $sql .= "username = '{$username}' ";
+        $sql .= "AND password = '{$password}' ";
+        $sql .= "LIMIT 1";
+
+         // use this way / this way to more short and clear cord
+         $the_result_array = self::findThisQuery($sql);
+         return !empty($the_result_array)? array_shift($the_result_array) : false;
+         
     }
 
 
