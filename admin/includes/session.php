@@ -7,13 +7,35 @@ class Session {
     // Create class property
     private $signed_in = false;
     public $user_id;
+    public $message;
 
     // Create constructor
     function __construct()
     {
         session_start();
         $this->checkTheLogin();
+        $this->checkMessage();
     }
+
+    // create messase method
+    public function message($msg = ""){
+        if(!empty($msg)){
+            $_SESSION['message'] = $msg;
+        }else {
+            return $this->message;
+        }
+    }
+
+    // check message set or not
+    private function checkMessage(){
+        if(isset($_SESSION['message'])){
+            $this->message = $_SESSION['message'];
+            unset($_SESSION['message']);
+        }else {
+            $this->message = "";
+        }
+    }
+    
 
     // check user is signed in
     public function isSignedIn(){
