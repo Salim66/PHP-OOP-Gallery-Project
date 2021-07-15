@@ -17,6 +17,8 @@ if(isset($_POST['submit'])){
 
     // Method to check database user
 
+    $user_fount = User::verify_user($username, $password);
+
 
     if($user_fount){
         $session->login($user_fount);

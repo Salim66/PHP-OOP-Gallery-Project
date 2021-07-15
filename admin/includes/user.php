@@ -94,4 +94,15 @@ class User {
     }
 
 
+    /**
+     * User verify from the database
+     */
+    public static function verify_user(){
+        // before we sending data into database first we clean up the string / unnessary token and symbol
+        global $database;
+        $username = $database->escape_string($username);
+        $pass = $database->escape_string($password);
+    }
+
+
 }
