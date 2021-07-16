@@ -10,14 +10,14 @@
 
                 <?php
 
-                    $user = new User();
+                    // $user = new User();
 
-                    $user->username   = "Saikat23";
-                    $user->password   = "123456";
-                    $user->first_name = "Saikat";
-                    $user->last_name  = "Hasan";
+                    // $user->username   = "Saikat23";
+                    // $user->password   = "123456";
+                    // $user->first_name = "Saikat";
+                    // $user->last_name  = "Hasan";
 
-                    $user->save();
+                    // $user->save();
 
 
                     // $users = User::findAll();
