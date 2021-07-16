@@ -20,13 +20,13 @@ class User {
     /**
      * Find all user from the database
      */
-    public static function findAllUsers(){
+    public static function findAll(){
         // global $database;
 
         // $result_set = $database->query("SELECT * FROM users");
         // return $result_set;
 
-        return self::findThisQuery("SELECT * FROM users");
+        return self::findThisQuery("SELECT * FROM " .self::$db_table. " ");
     }
 
     
@@ -37,7 +37,7 @@ class User {
     /**
      * Find specific user by user id
      */
-    public static function findUserById($user_id){
+    public static function findById($user_id){
         global $database;
 
         // $result_set = $database->query("SELECT * FROM users WHERE id=$user_id LIMIT 1");
@@ -45,7 +45,7 @@ class User {
         // return $found_user;
 
         // use this way / this way to more short and clear cord
-        $the_result_array = self::findThisQuery("SELECT * FROM users WHERE id= $user_id LIMIT 1");
+        $the_result_array = self::findThisQuery("SELECT * FROM " .self::$db_table. " WHERE id= $user_id LIMIT 1");
         
         return !empty($the_result_array)? array_shift($the_result_array) : false;
     }
@@ -136,7 +136,7 @@ class User {
 
 
 
-    
+
     /**
      * Create clean properties abstraction method
      */
@@ -165,7 +165,7 @@ class User {
         $username = $database->escape_string($username);
         $password = $database->escape_string($password);
 
-        $sql = "SELECT * FROM users WHERE ";
+        $sql = "SELECT * FROM " .self::$db_table. " WHERE ";
         $sql .= "username = '{$username}' ";
         $sql .= "AND password = '{$password}' ";
         $sql .= "LIMIT 1";
