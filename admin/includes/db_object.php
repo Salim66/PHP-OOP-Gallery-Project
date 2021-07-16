@@ -3,7 +3,8 @@
 // Create new Class
 class DBObject {
 
-
+    // create class property
+    protected static $db_table = "users";
 
     /**
      * Find all user from the database
@@ -14,7 +15,7 @@ class DBObject {
         // $result_set = $database->query("SELECT * FROM users");
         // return $result_set;
 
-        return self::findThisQuery("SELECT * FROM " .self::$db_table. " ");
+        return static::findThisQuery("SELECT * FROM " .static::$db_table. " ");
     }
 
     
@@ -32,7 +33,7 @@ class DBObject {
         // return $found_user;
 
         // use this way / this way to more short and clear cord
-        $the_result_array = self::findThisQuery("SELECT * FROM " .self::$db_table. " WHERE id= $user_id LIMIT 1");
+        $the_result_array = static::findThisQuery("SELECT * FROM " .static::$db_table. " WHERE id= $user_id LIMIT 1");
         
         return !empty($the_result_array)? array_shift($the_result_array) : false;
     }
@@ -51,7 +52,7 @@ class DBObject {
         $the_object_array = array();
 
         while($row = mysqli_fetch_array($result_set)){
-            $the_object_array[] = self::instantiation($row);
+            $the_object_array[] = static::instantiation($row);
         }
         return $the_object_array;
     }
@@ -64,7 +65,10 @@ class DBObject {
      * Auto instantiation method
      */
     public static function instantiation($found_user){
-        $the_object = new self;
+        // $the_object = new self;
+
+        $calling_class = get_called_class();
+        $the_object = new $calling_class;
 
         // // more better this code below the code 
         // $the_object->id         = $found_user['id'];

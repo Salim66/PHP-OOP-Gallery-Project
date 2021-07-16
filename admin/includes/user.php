@@ -5,7 +5,6 @@
 class User extends DBObject {
 
     // create class property
-    protected static $db_table = "users";
     protected static $db_table_field = ["username", "password", "first_name", "last_name"];
     public $id;
     public $username;
