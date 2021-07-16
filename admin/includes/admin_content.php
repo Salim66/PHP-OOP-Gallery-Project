@@ -12,13 +12,19 @@
 
                     $user = new User();
 
-                    $user->username   = "shamimbattery.1&";
-                    $user->password   = "shamim31";
-                    $user->first_name = "Shamim&*";
-                    $user->last_name  = "Hossain";
+                    $user->username   = "Saikat23";
+                    $user->password   = "123456";
+                    $user->first_name = "Saikat";
+                    $user->last_name  = "Hasan";
 
                     $user->save();
 
+
+                    // $users = User::findAll();
+
+                    // foreach ($users as $user) {
+                    //    echo $user->username;
+                    // }
 
                     
                     // $user = User::findUserById(6);
