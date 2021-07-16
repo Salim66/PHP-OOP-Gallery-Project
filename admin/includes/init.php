@@ -1,4 +1,13 @@
 <?php 
+
+
+    // create file directory
+    defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
+    define('SITE_ROOT', DS . 'C:' . DS . 'xampp' . DS . 'htdocs' . DS . 'php-projects' . DS .'gallery');
+    defined('INCLUDES_PATH') ? null : define('INCLUDES_PATH', SITE_ROOT . DS . 'admin' . DS . 'includes');
+
+
+
     // initialize all include one file
 
     require_once('functions.php');
