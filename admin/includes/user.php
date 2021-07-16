@@ -6,6 +6,7 @@ class User {
 
     // create class property
     protected static $db_table = "users";
+    protected static $db_table_field = ["username", "password", "first_name", "last_name"];
     public $id;
     public $username;
     public $password;
@@ -98,7 +99,17 @@ class User {
      * Create abstracting method
      */
     protected function properties(){
-        return get_object_vars($this);
+        // return get_object_vars($this);
+
+        $properties = [];
+
+        foreach(self::$db_table_field as $db_field){
+            // chcek class property exists this array property 
+            if(property_exists($this, $db_field)){
+                $properties[$db_field] = $this->db_field;
+            }
+        }
+        return $properties;
     }
 
 
