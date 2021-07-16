@@ -28,6 +28,7 @@ class Photo extends DBObject {
         UPLOAD_ERR_NO_TMP_DIR	=> "Missing a temporary folder", // 6
         UPLOAD_ERR_CANT_WRITE	=> "Failed to write file to disk", // 7
         UPLOAD_ERR_EXTENSION	=> "A PHP extension stopped the file upload." // 8
+        
 
     ];
 
