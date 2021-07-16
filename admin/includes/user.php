@@ -14,6 +14,9 @@ class User {
     public $last_name; 
 
 
+
+
+
     /**
      * Find all user from the database
      */
@@ -27,6 +30,10 @@ class User {
     }
 
     
+
+
+
+
     /**
      * Find specific user by user id
      */
@@ -42,6 +49,9 @@ class User {
         
         return !empty($the_result_array)? array_shift($the_result_array) : false;
     }
+
+
+
 
     
     /**
@@ -60,6 +70,9 @@ class User {
     }
 
     
+
+
+
     /**
      * Auto instantiation method
      */
@@ -85,6 +98,10 @@ class User {
         return $the_object;
     }
 
+
+
+
+
     /**
      * Create method has or not attribute 
      */
@@ -94,6 +111,11 @@ class User {
         // check array key exist or not
         return array_key_exists($the_attribute, $object_properties);
     }
+
+
+
+
+
 
     /**
      * Create abstracting method
@@ -111,6 +133,27 @@ class User {
         }
         return $properties;
     }
+
+
+
+    
+    /**
+     * Create clean properties abstraction method
+     */
+    protected function clean_properties(){
+        global $database;
+
+        $clean_properties = [];
+
+        foreach ($this->properties() as $key => $value) {
+            $clean_properties[$key] = $database->escape_string($value);
+        }
+
+        return $clean_properties;
+    }
+
+
+
 
 
     /**
@@ -134,12 +177,18 @@ class User {
     }
 
 
+
+
+
     /**
      * Create save method to improve our create and update method
      */
     public function save(){
         return isset($this->id) ? $this->update() : $this->create();
     }
+
+
+
 
 
     /**
@@ -149,7 +198,7 @@ class User {
         global $database;
 
         // call to abstract method this method hold all the propertis
-        $properties = $this->properties();
+        $properties = $this->clean_properties();
         // create query
         $sql = "INSERT INTO ".self::$db_table."(". implode(",", array_keys($properties)) .") ";
         $sql .= "VALUES('".implode("','", array_values($properties))."')";
@@ -164,6 +213,9 @@ class User {
         }
     }
 
+
+
+
     /**
      * User Update Method
      */
@@ -171,7 +223,7 @@ class User {
         global $database;
 
         // call to abstract method this method hold all the propertis
-        $properties = $this->properties();
+        $properties = $this->clean_properties();
         
         $properties_pairs = [];
 
@@ -191,6 +243,10 @@ class User {
         return (mysqli_affected_rows($database->connection) == 1) ? true : false;
     }
 
+
+
+
+
     /**
      * User Delete Method
      */
@@ -207,6 +263,8 @@ class User {
         // check whether the delete successfully affected or not
         return (mysqli_affected_rows($database->connection) == 1) ? true : false;
     }
+
+
 
 
 }
