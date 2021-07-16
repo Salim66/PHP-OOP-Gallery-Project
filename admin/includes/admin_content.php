@@ -10,21 +10,24 @@
 
                 <?php
 
-                    $user = new User();
+                    // $user = new User();
 
-                    $user->username   = "plabon";
-                    $user->password   = "123456";
-                    $user->first_name = "Play";
-                    $user->last_name  = "Boy";
+                    // $user->username   = "plabon";
+                    // $user->password   = "123456";
+                    // $user->first_name = "Play";
+                    // $user->last_name  = "Boy";
 
-                    $user->save();
+                    // $user->save();
 
 
                     
-                    // $user = User::findUserById(4);
+                    $user = User::findUserById(6);
 
-                    // $user->last_name = "Uddin";
-                    // $user->save();
+                    $user->username = "Jobayer66";
+                    $user->password = "123456";
+                    $user->first_name = "Jobayer";
+                    $user->last_name = "Mahbub";
+                    $user->save();
 
 
                     // $user = User::findUserById(4);

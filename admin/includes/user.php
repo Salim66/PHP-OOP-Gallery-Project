@@ -175,7 +175,7 @@ class User {
         
         $properties_pairs = [];
 
-        foreach ($$properties as $key => $value) {
+        foreach ($properties as $key => $value) {
             $properties_pairs[] = "{$key}= '{$value}'";
         }
 
