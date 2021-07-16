@@ -5,6 +5,7 @@
 class User {
 
     // create class property
+    protected static $db_table = "users";
     public $id;
     public $username;
     public $password;
@@ -129,7 +130,7 @@ class User {
     public function create(){
         global $database;
         // create query
-        $sql = "INSERT INTO users(username, password, first_name, last_name) ";
+        $sql = "INSERT INTO ".self::$db_table."(username, password, first_name, last_name) ";
         $sql .= "VALUES('";
         $sql .= $database->escape_string($this->username)."', '";
         $sql .= $database->escape_string($this->password)."', '";
@@ -151,7 +152,7 @@ class User {
     public function update(){
         global $database;
         // update query
-        $sql = "UPDATE users SET ";
+        $sql = "UPDATE ".self::$db_table." SET ";
         $sql .= "username= '". $database->escape_string($this->username) ."', ";
         $sql .= "password= '". $database->escape_string($this->password)."',";
         $sql .= "first_name= '". $database->escape_string($this->first_name)."',";
@@ -170,7 +171,7 @@ class User {
     public function delete(){
         global $database;
         // delete query
-        $sql = "DELETE FROM users ";
+        $sql = "DELETE FROM ".self::$db_table." ";
         $sql .= "WHERE id= " .$database->escape_string($this->id);
         $sql .= " LIMIT 1";
 
