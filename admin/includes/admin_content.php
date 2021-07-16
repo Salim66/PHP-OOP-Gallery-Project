@@ -12,10 +12,10 @@
 
                     $user = new User();
 
-                    $user->username   = "Shihab12";
+                    $user->username   = "plabon";
                     $user->password   = "123456";
-                    $user->first_name = "Shihab";
-                    $user->last_name  = "Ahmed";
+                    $user->first_name = "Play";
+                    $user->last_name  = "Boy";
 
                     $user->save();
 

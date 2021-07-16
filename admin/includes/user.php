@@ -106,7 +106,7 @@ class User {
         foreach(self::$db_table_field as $db_field){
             // chcek class property exists this array property 
             if(property_exists($this, $db_field)){
-                $properties[$db_field] = $this->db_field;
+                $properties[$db_field] = $this->$db_field;
             }
         }
         return $properties;
