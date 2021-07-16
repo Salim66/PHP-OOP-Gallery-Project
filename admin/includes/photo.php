@@ -50,7 +50,7 @@ class Photo extends DBObject {
         }else {
 
             $this->filename = basename($file['name']);
-            $this->tmp_path = $file['tem_name'];
+            $this->tmp_path = $file['tmp_name'];
             $this->type     = $file['type'];
             $this->size     = $file['size'];
 
@@ -100,6 +100,14 @@ class Photo extends DBObject {
         }
 
     }
+
+
+
+
+
+
+
+
 
 
 
