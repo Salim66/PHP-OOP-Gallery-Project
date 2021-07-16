@@ -94,6 +94,13 @@ class User {
         return array_key_exists($the_attribute, $object_properties);
     }
 
+    /**
+     * Create abstracting method
+     */
+    protected function properties(){
+        return get_object_vars($this);
+    }
+
 
     /**
      * User verify from the database
@@ -129,8 +136,11 @@ class User {
      */
     public function create(){
         global $database;
+
+        // call to abstract method this method hold all the propertis
+        $properties = $this->properties();
         // create query
-        $sql = "INSERT INTO ".self::$db_table."(username, password, first_name, last_name) ";
+        $sql = "INSERT INTO ".self::$db_table."(". implode(",", array_keys($properties)) .") ";
         $sql .= "VALUES('";
         $sql .= $database->escape_string($this->username)."', '";
         $sql .= $database->escape_string($this->password)."', '";
