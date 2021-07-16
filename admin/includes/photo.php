@@ -16,7 +16,7 @@ class Photo extends DBObject {
 
     public $tmp_path;
     public $upload_directory = "images";
-    public $custom_errors = [];
+    public $errors = [];
 
     public $upload_errors_array = [
 
@@ -28,8 +28,34 @@ class Photo extends DBObject {
         UPLOAD_ERR_NO_TMP_DIR	=> "Missing a temporary folder", // 6
         UPLOAD_ERR_CANT_WRITE	=> "Failed to write file to disk", // 7
         UPLOAD_ERR_EXTENSION	=> "A PHP extension stopped the file upload." // 8
-        
+
     ];
+
+
+
+
+    // This is passing $_FILES['upload_file'] as an argument
+    public function setFile($file){
+
+        if(empty($file) || !$file || !is_array($file)){
+            
+            $this->errors[] = "There was no file uploaded here";
+            return false; 
+
+        }elseif($file['error'] != 0){
+
+            $this->errors[] = $this->upload_errors_array[$file['error']];
+            return false;
+
+        }else {
+
+            $this->filename = basename($file['name']);
+            $this->tmp_path = $file['tem_name'];
+            $this->type     = $file['type'];
+            $this->size     = $file['size'];
+
+        }
+    }
 
 
 
