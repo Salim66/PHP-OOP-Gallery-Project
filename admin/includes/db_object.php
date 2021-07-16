@@ -3,9 +3,6 @@
 // Create new Class
 class DBObject {
 
-    // create class property
-    protected static $db_table = "users";
-
     /**
      * Find all user from the database
      */
@@ -15,7 +12,7 @@ class DBObject {
         // $result_set = $database->query("SELECT * FROM users");
         // return $result_set;
 
-        return static::findByQuery("SELECT * FROM " .static::$db_table. " ");
+        return static::findByQuery("SELECT * FROM " . static::$db_table . " ");
     }
 
     

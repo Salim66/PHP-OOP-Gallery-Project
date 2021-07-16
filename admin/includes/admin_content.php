@@ -12,9 +12,9 @@
 
                     // $user = new User();
 
-                    // $user->username   = "Saikat23";
+                    // $user->username   = "Saikat2253";
                     // $user->password   = "123456";
-                    // $user->first_name = "Saikat";
+                    // $user->first_name = "Saikat36";
                     // $user->last_name  = "Hasan";
 
                     // $user->save();
@@ -39,6 +39,19 @@
                     // $user = User::findUserById(4);
                     // $user->delete();
 
+
+                        // $photos = Photo::findAll();
+                        // foreach($photos as $photo){
+                        //     echo $photo->title;
+                        // }
+
+
+                        // $photo = new Photo();
+
+                        // $photo->title   = "This is test purpose title";    
+                        // $photo->save();
+
+
                     
                 
                 ?>
@@ -59,3 +72,6 @@
 
 </div>
 <!-- /.container-fluid -->
+
+
+
