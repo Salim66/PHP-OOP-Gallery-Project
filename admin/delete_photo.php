@@ -21,6 +21,7 @@
         // chcek user find or not
         if($photo != null){
             $photo->deletePhoto();
+            redirect('photos.php');
         }else {
             redirect('photos.php');
         }
