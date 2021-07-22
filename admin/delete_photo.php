@@ -11,7 +11,18 @@
 
     <?php
     
-        
-    
+        // Get id
+        if(empty($_GET['id'])){
+            redirect('photos.php');
+        }
+
+        $photo = Photo::findById($_GET['id']);
+
+        // chcek user find or not
+        if($photo != null){
+            $photo->deletePhoto();
+        }else {
+            redirect('photos.php');
+        }
     
     ?>
