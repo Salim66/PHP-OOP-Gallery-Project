@@ -5,8 +5,8 @@ class Photo extends DBObject {
 
     // create class property
     protected static $db_table = "photos";
-    protected static $db_table_field = ["photo_id", "title", "description", "filename", "type", "size"];
-    public $photo_id;
+    protected static $db_table_field = ["id", "title", "description", "filename", "type", "size"];
+    public $id;
     public $title;
     public $description;
     public $filename;
@@ -63,8 +63,8 @@ class Photo extends DBObject {
     // Create save method
     public function save(){
         
-        // check whether the photo_id has or not
-        if($this->photo_id){
+        // check whether the id has or not
+        if($this->id){
             $this->update();
         }else {
 

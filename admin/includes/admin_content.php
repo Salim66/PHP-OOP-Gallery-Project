@@ -10,6 +10,11 @@
 
                 <?php
 
+
+                    $photo = Photo::findById(7);
+                    echo $photo->filename;
+
+
                     // $user = new User();
 
                     // $user->username   = "Saikat2253";
@@ -52,7 +57,7 @@
                         // $photo->save();
 
 
-                    echo INCLUDES_PATH;
+                    // echo INCLUDES_PATH;
                 
                 ?>
 

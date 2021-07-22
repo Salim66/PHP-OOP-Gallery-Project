@@ -22,15 +22,15 @@ class DBObject {
     /**
      * Find specific user by user id
      */
-    public static function findById($user_id){
+    public static function findById($id){
         global $database;
 
-        // $result_set = $database->query("SELECT * FROM users WHERE id=$user_id LIMIT 1");
+        // $result_set = $database->query("SELECT * FROM users WHERE id=$id LIMIT 1");
         // $found_user = mysqli_fetch_array($result_set);
         // return $found_user;
 
         // use this way / this way to more short and clear cord
-        $the_result_array = static::findByQuery("SELECT * FROM " .static::$db_table. " WHERE id= $user_id LIMIT 1");
+        $the_result_array = static::findByQuery("SELECT * FROM " .static::$db_table. " WHERE id= $id LIMIT 1");
         
         return !empty($the_result_array)? array_shift($the_result_array) : false;
     }
