@@ -7,7 +7,35 @@
     }
 ?>
 
+<?php 
 
+    // Check whether the id has or not
+    if(empty($_GET['id'])){
+        redirect('photos.php');
+    }else {
+
+        // find the specific gallery
+        $photo = Photo::findById($_GET['id']);
+
+        // check form submit or not
+        if(isset($_POST['update'])){
+            
+            if($photo != null){
+                // get all form data
+                $_POST['title'];
+                $_POST['caption'];
+                $_POST['alternate_text'];
+                $_POST['description'];
+            }
+        }
+
+
+    }
+
+    
+
+
+?>
 
 
         <!-- Navigation -->
