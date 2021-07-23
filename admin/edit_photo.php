@@ -83,7 +83,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Description</label>
-                                    <textarea name="description" class="form-control" id="" cols="30" rows="10"><?php echo $photo->description ?? 'description' ?></textarea>
+                                    <textarea name="description" class="form-control" id="mytextarea" cols="30" rows="10"><?php echo $photo->description ?? 'description' ?></textarea>
                                 </div>
                                 
                             </div>
