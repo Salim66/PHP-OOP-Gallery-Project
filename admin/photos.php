@@ -54,7 +54,7 @@
                                     <?php  foreach($photos as $photo): ?>
 
                                         <tr>
-                                            <td><img src="<?php echo $photo->picturePath(); ?>">
+                                            <td><img class="photo_thumbnil" src="<?php echo $photo->picturePath(); ?>">
                                         
                                                 <div class="picture_link">
                                                     <a href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a>

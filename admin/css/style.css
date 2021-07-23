@@ -1,5 +1,12 @@
 
+.photo_thumbnil {
+  width: 200px;
+  border-radius: 5px;
+}
 
+
+
+/****************************** Edit photo page styling ********************************/
 .photo-info-box {
 
     border: 1px solid #e5e5e5;
