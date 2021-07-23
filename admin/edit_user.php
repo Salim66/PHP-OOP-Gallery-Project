@@ -9,21 +9,29 @@
 
 <?php 
 
-    $user = new User();
+    // Check whether the id has or not
+    if(empty($_GET['id'])){
+        redirect('users.php');
+    }else {
 
-    // check form submit or not
-    if(isset($_POST['create'])){
+        // find the specific user
+        $user = User::findById($_GET['id']);
 
-        if($user){
-            $user->username   = $_POST['username'];
-            $user->first_name = $_POST['first_name'];
-            $user->last_name = $_POST['last_name'];
-            $user->password   = $_POST['password'];
-
-            $user->setFile($_FILES['user_image']);
-
-            $user->saveUserAndImage();
+        // check form submit or not
+        if(isset($_POST['update'])){
+            
+            if($user){
+                $user->username   = $_POST['username'];
+                $user->first_name = $_POST['first_name'];
+                $user->last_name = $_POST['last_name'];
+                $user->password   = $_POST['password'];
+    
+                $user->setFile($_FILES['user_image']);
+    
+                $user->saveUserAndImage();
+            }
         }
+
 
     }
     
@@ -53,7 +61,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Photos
+                            users
                             <small>Subheading</small>
                         </h1>                       
                         <form action="" method="POST" enctype="multipart/form-data">
@@ -81,7 +89,7 @@
                                     <input type="password" name="password" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <input type="submit" name="create" class="btn btn-primary">
+                                    <input type="submit" name="update" class="btn btn-primary">
                                 </div>
                                 
                             </div>
