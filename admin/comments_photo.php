@@ -13,6 +13,8 @@
         redirect("photos.php");
     }
 
+    $comments = Comment::findTheComment($_GET['id']);
+
 ?>
 
         <!-- Navigation -->
