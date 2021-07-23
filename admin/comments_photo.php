@@ -1,4 +1,5 @@
 <?php include("includes/header.php"); ?>
+<?php include("includes/init.php"); ?>
 
 <?php
     // check whether the user is not login then , kikout the admin panel
@@ -42,6 +43,7 @@
                             <small>Subheading</small>
                         </h1>
                         <!-- <a class="btn btn-primary" href="add_user.php">Add User</a> -->
+                        
                         <div class="col-md-12">
                             <table class="table table-hover table-responsive table-striped">
                                 <thead>
@@ -61,7 +63,7 @@
                                             
                                             <td><?php echo $comment->author ?>
                                                 <div class="action_link">
-                                                    <a href="delete_comment.php?id=<?php echo $comment->id; ?>">Delete</a>
+                                                    <a href="delete_comment_photo.php?id=<?php echo $comment->id; ?>">Delete</a>
                                                 </div>
                                             </td>
                                             <td><?php echo $comment->body ?></td>
