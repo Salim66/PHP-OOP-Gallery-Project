@@ -25,10 +25,17 @@
                 $user->first_name = $_POST['first_name'];
                 $user->last_name = $_POST['last_name'];
                 $user->password   = $_POST['password'];
+
+                if(empty($_FILES['user_image'])){
+                    $user->save();
+                }else {
+                    $user->setFile($_FILES['user_image']);
+                    $user->saveUserAndImage();
+                    $user->save();
+
+                    redirect("edit_user.php?id=$user->id");
+                }
     
-                $user->setFile($_FILES['user_image']);
-    
-                $user->saveUserAndImage();
             }
         }
 
@@ -66,7 +73,7 @@
                         </h1>   
                         
                             <div class="col-md-6">
-                                <img src="<?php echo $user->imagePathAndPlaceholder() ?>" alt="">
+                                <img width="100%" src="<?php echo $user->imagePathAndPlaceholder() ?>" alt="">
                             </div>
 
                         <form action="" method="POST" enctype="multipart/form-data">

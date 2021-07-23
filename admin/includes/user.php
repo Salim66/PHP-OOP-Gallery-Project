@@ -48,12 +48,6 @@ class User extends DBObject {
     }
 
 
-    //Create method for path file path directory
-    public function picturePath(){
-        return $this->upload_directory.DS.$this->user_image;
-    }
-
-
     // This is passing $_FILES['upload_file'] as an argument
     public function setFile($file){
 
@@ -81,11 +75,6 @@ class User extends DBObject {
 
     // Create save method
     public function saveUserAndImage(){
-        
-        // check whether the id has or not
-        if($this->id){
-            $this->update();
-        }else {
 
             // Check $errors is not empty
             if(!empty($this->errors)){
@@ -116,8 +105,6 @@ class User extends DBObject {
                 $this->errors[] = 'The file directory probabily does not have permission';
                 return false;
             }
-
-        }
 
     }
 
