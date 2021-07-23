@@ -35,11 +35,17 @@
 
     // }
 
+    $user = new User();
 
     // check form submit or not
     if(isset($_POST['create'])){
 
-        echo 'Submit successfully ):';
+        if($user){
+            echo $user->username   = $_POST['username'];
+            echo $user->first_name = $_POST['first_name'];
+            echo $user->first_name = $_POST['last_name'];
+            echo $user->password   = $_POST['password'];
+        }
 
     }
     
@@ -72,8 +78,12 @@
                             Photos
                             <small>Subheading</small>
                         </h1>                       
-                        <form action="" method="POST">
-                            <div class="col-md-8">
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            <div class="col-md-6 col-md-offset-3">
+                                
+                                <div class="form-group">
+                                    <input type="file" name="user_image" class="form-control">
+                                </div>
                                 
                                 <div class="form-group">
                                     <label for="username">Username</label>
