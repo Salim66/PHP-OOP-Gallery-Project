@@ -14,7 +14,7 @@ class Comment extends DBObject {
 
 
     // Create comment method
-    public static function createComment($photo_id, $author, $body){
+    public static function createComment($photo_id, $author="Salim", $body=""){
         
         if(!empty($photo_id) && !empty($author) && !empty($body)){
             // Create Commnet class Instantiate
@@ -29,6 +29,17 @@ class Comment extends DBObject {
             return false;
         }
 
+    }
+
+    //Create method findTheCommnet
+    public static function findTheComment($photo_id){
+        global $database;
+
+        $sql  = "SELECT * FROM " .self::$db_table;
+        $sql .= " WHERE photo_id=" .$database->escape_string($photo_id);
+        $sql .= " ORDER BY photo_id ASC";
+
+        return self::findByQuery($sql);
     }
 
 }
