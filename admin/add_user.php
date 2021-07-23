@@ -18,21 +18,30 @@
     //     $photo = Photo::findById($_GET['id']);
 
     //     // check form submit or not
-    //     if(isset($_POST['update'])){
+    //     if(isset($_POST['create'])){
+
+    //         echo 'Submit successfully ):';
             
-    //         if($photo != null){
-    //             // get all form data
-    //             $photo->title          = $_POST['title'];
-    //             $photo->caption        = $_POST['caption'];
-    //             $photo->alternate_text = $_POST['alternate_text'];
-    //             $photo->description    = $_POST['description'];
-    //             $photo->save();
-    //         }
+    //         // if($photo != null){
+    //         //     // get all form data
+    //         //     $photo->title          = $_POST['title'];
+    //         //     $photo->caption        = $_POST['caption'];
+    //         //     $photo->alternate_text = $_POST['alternate_text'];
+    //         //     $photo->description    = $_POST['description'];
+    //         //     $photo->save();
+    //         // }
     //     }
 
 
     // }
 
+
+    // check form submit or not
+    if(isset($_POST['create'])){
+
+        echo 'Submit successfully ):';
+
+    }
     
 
 
@@ -82,6 +91,9 @@
                                 <div class="form-group">
                                     <label for="password">Password</label>
                                     <input type="text" name="password" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" name="create" class="btn btn-primary">
                                 </div>
                                 
                             </div>
