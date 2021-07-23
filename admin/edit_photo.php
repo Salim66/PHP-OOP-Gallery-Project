@@ -71,6 +71,9 @@
                                     <input type="text" name="title" class="form-control" value="<?php echo $photo->title ?? 'title' ?>">
                                 </div>
                                 <div class="form-group">
+                                    <a class="thumbnail" href="#"><img src="<?php echo $photo->picturePath() ?>" alt=""></a>
+                                </div>
+                                <div class="form-group">
                                     <label for="caption">Caption</label>
                                     <input type="text" name="caption" class="form-control" value="<?php echo $photo->caption ?? 'caption' ?>">
                                 </div>
@@ -110,7 +113,7 @@
                                 </div>
                                 <div class="info-box-footer clearfix">
                                     <div class="info-box-delete pull-left">
-                                        <a  href="" class="btn btn-danger btn-lg ">Delete</a>   
+                                        <a  href="delete_photo.php?id=<?php echo $photo->id; ?>" class="btn btn-danger btn-lg ">Delete</a>   
                                     </div>
                                     <div class="info-box-update pull-right ">
                                         <input type="submit" name="update" value="Update" class="btn btn-primary btn-lg ">
