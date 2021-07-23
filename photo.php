@@ -15,13 +15,20 @@
 
        $new_comment = Comment::createComment($photo->id, $author, $body);
 
-       if($new_comment && $new_comment->save())
+       if($new_comment && $new_comment->save()){
+           redirect("photo.php?id={$photo->id}");
+       }else {
+           $message = "There was some problems saving";
+       }
 
-        redirect("photo.php?id={$photo->id}");
 
-        
+    }else {
+        $author = "";
+        $body   = "";
     }
 
+    // Find the 
+    $comments = Comment::findTheComment($photo->id);
 
 
 ?>
@@ -147,6 +154,7 @@
                 <!-- Posted Comments -->
 
                 <!-- Comment -->
+                <?php while($comment = mysqli_fetch_array($this->comments)): ?>
                 <div class="media">
                     <a class="pull-left" href="#">
                         <img class="media-object" src="http://placehold.it/64x64" alt="">
@@ -158,6 +166,7 @@
                         Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                     </div>
                 </div>
+                <?php endwhile; ?>
                 <!-- !Comment -->
 
             </div>
