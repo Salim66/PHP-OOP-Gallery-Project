@@ -47,6 +47,7 @@
                                         <th>File Nmae</th>
                                         <th>Title</th>
                                         <th>Size</th>
+                                        <th>Comments</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -67,6 +68,10 @@
                                             <td><?php echo $photo->filename ?></td>
                                             <td><?php echo $photo->title ?></td>
                                             <td><?php echo $photo->size ?></td>
+                                            <td>
+                                                <?php $comments = Comment::findTheComment($photo->id); ?>
+                                                <?php echo count($comments) ?>
+                                            </td>
                                         </tr>
 
                                     <?php endforeach; ?>

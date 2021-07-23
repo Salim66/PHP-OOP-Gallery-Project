@@ -49,6 +49,7 @@
                                         <th>Id</th>
                                         <th>Author</th>
                                         <th>Body</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -64,6 +65,7 @@
                                                 </div>
                                             </td>
                                             <td><?php echo $comment->body ?></td>
+                                            
                                         </tr>
 
                                     <?php endforeach; ?>
