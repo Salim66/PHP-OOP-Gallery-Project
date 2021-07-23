@@ -63,9 +63,14 @@
                         <h1 class="page-header">
                             users
                             <small>Subheading</small>
-                        </h1>                       
+                        </h1>   
+                        
+                            <div class="col-md-6">
+                                <img src="<?php echo $user->imagePathAndPlaceholder() ?>" alt="">
+                            </div>
+
                         <form action="" method="POST" enctype="multipart/form-data">
-                            <div class="col-md-6 col-md-offset-3">
+                            <div class="col-md-6">
                                 
                                 <div class="form-group">
                                     <input type="file" name="user_image" class="form-control">
@@ -73,23 +78,23 @@
                                 
                                 <div class="form-group">
                                     <label for="username">Username</label>
-                                    <input type="text" name="username" class="form-control">
+                                    <input type="text" name="username" class="form-control" value="<?php echo $user->username ?>">
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="first_name">First Name</label>
-                                    <input type="text" name="first_name" class="form-control">
+                                    <input type="text" name="first_name" class="form-control" value="<?php echo $user->first_name ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="last_name">Last Name</label>
-                                    <input type="text" name="last_name" class="form-control">
+                                    <input type="text" name="last_name" class="form-control" value="<?php echo $user->last_name ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
                                     <input type="password" name="password" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <input type="submit" name="update" class="btn btn-primary">
+                                    <input type="submit" name="update" class="btn btn-primary" value="Update">
                                 </div>
                                 
                             </div>
