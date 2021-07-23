@@ -5,7 +5,7 @@ class Photo extends DBObject {
 
     // create class property
     protected static $db_table = "photos";
-    protected static $db_table_field = ["id", "title", "description", "filename", "type", "size"];
+    protected static $db_table_field = ["id", "title", "caption", "description",  "alternate_text", "filename", "type", "size"];
     public $id;
     public $title;
     public $description;
