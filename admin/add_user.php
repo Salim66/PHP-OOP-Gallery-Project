@@ -41,10 +41,14 @@
     if(isset($_POST['create'])){
 
         if($user){
-            echo $user->username   = $_POST['username'];
-            echo $user->first_name = $_POST['first_name'];
-            echo $user->first_name = $_POST['last_name'];
-            echo $user->password   = $_POST['password'];
+            $user->username   = $_POST['username'];
+            $user->first_name = $_POST['first_name'];
+            $user->last_name = $_POST['last_name'];
+            $user->password   = $_POST['password'];
+
+            $user->setFile($_FILES['user_image']);
+
+            $user->saveUserAndImage();
         }
 
     }
@@ -100,7 +104,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input type="text" name="password" class="form-control">
+                                    <input type="password" name="password" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <input type="submit" name="create" class="btn btn-primary">
