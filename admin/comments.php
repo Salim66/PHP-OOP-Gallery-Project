@@ -1,5 +1,19 @@
 <?php include("includes/header.php"); ?>
 
+<?php
+    // check whether the user is not login then , kikout the admin panel
+    if(!$session->isSignedIn()){
+        redirect("login.php");
+    }
+?>
+
+
+<?php 
+    // Get all data 
+    $comments = Comment::findAll();
+
+?>
+
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             
@@ -24,14 +38,36 @@
                             Comments
                             <small>Subheading</small>
                         </h1>
-                        <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-file"></i> Blank Page
-                            </li>
-                        </ol>
+                        <!-- <a class="btn btn-primary" href="add_user.php">Add User</a> -->
+                        <div class="col-md-12">
+                            <table class="table table-hover table-responsive table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Author</th>
+                                        <th>Body</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <?php  foreach($comments as $comment): ?>
+
+                                        <tr>
+                                            <td><?php echo $comment->id ?></td>
+                                            
+                                            <td><?php echo $comment->author ?>
+                                                <div class="action_link">
+                                                    <a href="delete_user.php?id=<?php echo $comment->id; ?>">Delete</a>
+                                                </div>
+                                            </td>
+                                            <td><?php echo $comment->body ?></td>
+                                        </tr>
+
+                                    <?php endforeach; ?>
+
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
                 <!-- /.row -->
