@@ -23,7 +23,7 @@
             $user->deleteUser();
             redirect('users.php');
         }else {
-            return false;
+            redirect('users.php');
         }
     
     ?>

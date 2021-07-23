@@ -115,7 +115,7 @@ class User extends DBObject {
      */
     public function deleteUser(){
         if($this->delete()){
-            $target_path = SITE_ROOT.DS.'admin'.$this->picturePath();
+            $target_path = SITE_ROOT.DS.'admin'.$this->imagePathAndPlaceholder();
             return ($target_path) ? true : false;
         }else {
             redirect('users.php');

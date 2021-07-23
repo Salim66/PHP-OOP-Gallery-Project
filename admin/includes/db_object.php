@@ -6,6 +6,7 @@ class DBObject {
     /**
      * File upload errors
      */
+    public $errors = [];
     public $upload_errors_array = [
 
         UPLOAD_ERR_OK		    => "There is no error", // 0
