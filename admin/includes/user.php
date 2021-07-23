@@ -26,7 +26,6 @@ class User extends DBObject {
     }
 
 
-
    
     /**
      * User verify from the database
@@ -46,6 +45,25 @@ class User extends DBObject {
          $the_result_array = self::findByQuery($sql);
          return !empty($the_result_array)? array_shift($the_result_array) : false;
 
+    }
+
+
+    //Create method for path file path directory
+    public function picturePath(){
+        return $this->upload_directory.DS.$this->user_image;
+    }
+
+
+    /**
+     * User delete method
+     */
+    public function deleteUser(){
+        if($this->delete()){
+            $target_path = SITE_ROOT.DS.'admin'.$this->picturePath();
+            return ($target_path) ? true : false;
+        }else {
+            redirect('users.php');
+        }
     }
 
 
