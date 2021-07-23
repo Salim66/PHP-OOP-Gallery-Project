@@ -1,4 +1,13 @@
 <?php
+    // require init file
+    require_once('admin/includes/init.php');
+
+    // Check url id pass or not 
+    if(empty($_GET['id'])){
+        redirect('index.php');
+    }
+
+    $photo = Photo::findById($_GET['id']);
 
     if(isset($_POST['submit'])){
         echo "HELLO";
