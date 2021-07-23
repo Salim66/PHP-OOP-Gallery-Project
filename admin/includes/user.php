@@ -74,7 +74,7 @@ class User extends DBObject {
 
 
     // Create save method
-    public function saveUserAndImage(){
+    public function uploadPhoto(){
 
             // Check $errors is not empty
             if(!empty($this->errors)){
@@ -97,10 +97,10 @@ class User extends DBObject {
 
             // upload a file
             if(move_uploaded_file($this->tmp_path, $target_path)){
-                if($this->create()){
+
                     unset($this->tmp_path);
                     return true;
-                }
+
             }else {
                 $this->errors[] = 'The file directory probabily does not have permission';
                 return false;

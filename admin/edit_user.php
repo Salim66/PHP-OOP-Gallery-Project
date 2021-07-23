@@ -30,7 +30,7 @@
                     $user->save();
                 }else {
                     $user->setFile($_FILES['user_image']);
-                    $user->saveUserAndImage();
+                    $user->uploadPhoto();
                     $user->save();
 
                     redirect("edit_user.php?id=$user->id");
