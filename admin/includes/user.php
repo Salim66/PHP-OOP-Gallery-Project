@@ -6,12 +6,24 @@ class User extends DBObject {
 
     // create class property
     protected static $db_table = "users";
-    protected static $db_table_field = ["username", "password", "first_name", "last_name"];
+    protected static $db_table_field = ["username", "password", "first_name", "last_name", "user_image"];
     public $id;
     public $username;
     public $password;
     public $first_name;
     public $last_name; 
+    public $user_image; 
+    public $upload_directory = 'images'; 
+    public $image_placeholder = "http://placehold.it/400x400&text=image"; 
+
+
+
+    /**
+     * User Image path and Placeholder method
+     */
+    public function imagePathAndPlaceholder(){
+        return empty($user_image) ? $this->image_placeholder : $this->upload_directory . DS . $this->user_image;
+    }
 
 
 

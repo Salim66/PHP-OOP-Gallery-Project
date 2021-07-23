@@ -55,7 +55,7 @@
 
                                         <tr>
                                             <td><?php echo $user->id ?></td>
-                                            <td><img class="user_thumbnil" src="<?php echo $user->userImage; ?>"></td>
+                                            <td><img class="user_thumbnil user_image" src="<?php echo $user->imagePathAndPlaceholder(); ?>"></td>
                                             
                                             <td><?php echo $user->username ?>
                                                 <div class="action_link">
