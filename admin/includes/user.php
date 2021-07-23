@@ -13,7 +13,7 @@ class User extends DBObject {
     public $first_name;
     public $last_name; 
     public $user_image; 
-    public $upload_directory = 'images'; 
+    public $upload_directory = "images"; 
     public $image_placeholder = "http://placehold.it/400x400&text=image"; 
 
 
@@ -22,7 +22,7 @@ class User extends DBObject {
      * User Image path and Placeholder method
      */
     public function imagePathAndPlaceholder(){
-        return empty($user_image) ? $this->image_placeholder : $this->upload_directory . DS . $this->user_image;
+        return empty($this->user_image) ? $this->image_placeholder : $this->upload_directory.DS.$this->user_image;
     }
 
 
