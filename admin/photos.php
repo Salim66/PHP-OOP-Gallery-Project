@@ -70,7 +70,7 @@
                                             <td><?php echo $photo->size ?></td>
                                             <td>
                                                 <?php $comments = Comment::findTheComment($photo->id); ?>
-                                                <?php echo count($comments) ?>
+                                                <a href="comments_photo.php?id=<?php echo $photo->id; ?>"><?php echo count($comments) ?></a>
                                             </td>
                                         </tr>
 
