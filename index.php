@@ -11,7 +11,7 @@
                     <?php foreach($photos as $photo): ?>                        
                         <div class="col-xs-6 col-md-3">
                             <a href="" class="thumbnail">
-                                <img src="admin/<?php echo $photo->picturePath(); ?>" alt="">
+                                <img class="img-responsive home-page-photo" src="admin/<?php echo $photo->picturePath(); ?>" alt="">
                             </a>
                         </div>                        
                     <?php endforeach; ?>
