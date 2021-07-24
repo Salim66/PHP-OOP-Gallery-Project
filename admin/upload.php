@@ -10,12 +10,12 @@
 <?php
     // create message property
     $message = "";
-    if(isset($_POST['submit'])){
+    if(isset($_FILES['file'])){
 
         // instantiate a Photo class
         $photo = new Photo();
         $photo->title = $_POST['title'];
-        $photo->setFile($_FILES['file_upload']);
+        $photo->setFile($_FILES['file']);
 
         // save file and check
         if($photo->save()){
@@ -57,17 +57,24 @@
                         <?php echo $message; ?>
                         <br>
                        
+                    <div class="row">
                         <div class="col-md-6">
                             <form action="upload.php" method="POST" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <input type="text" name="title" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <input type="file" name="file_upload" class="form-control-file">
+                                    <input type="file" name="file" class="form-control-file">
                                 </div>
                                 <input type="submit" name="submit" class="btn btn-primary" value="Submit">
                             </form>
                         </div>
+                    </div>
+
+                    <form action="upload.php" class="dropzone">
+                        
+                    </form>
+
                     </div>
                 </div>
                 <!-- /.row -->
