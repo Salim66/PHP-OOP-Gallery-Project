@@ -29,9 +29,27 @@
             image_src_splitted = image_src.split('/');
             image_name = image_src_splitted[image_src_splitted.length - 1];
             // alert(image_name);
-
-            
+   
         });
+
+
+        // send ajax request for gallery
+        $('#set_user_image').click(function(e){
+            // alert(image_name);
+            
+            $.ajax({
+                url: 'includes/ajax_code.php',
+                data: {image_name: image_name, user_id: user_id},
+                type: "POST",
+                success: function(data){
+                    if(!data.error){
+                        alert(image_name);
+                    }
+                }
+            });
+
+        });
+
     });
 
 })(jQuery);
