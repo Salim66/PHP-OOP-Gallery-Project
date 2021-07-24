@@ -15,6 +15,21 @@ class Paginte {
         $this->items_total_count = (int)$items_total_count;
     }
 
+    // Create next page 
+    public function next(){
+        return $this->current_page +1;
+    }
+
+    // Create previous page
+    public function previous(){
+        return $this->current_page -1;
+    }
+
+    // Create total page
+    public function pageTotal(){
+        return ceil($this->items_total_count/$this->items_per_page);
+    }
+
 }
 
 
