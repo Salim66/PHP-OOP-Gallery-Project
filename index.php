@@ -9,10 +9,18 @@
 
     $items_total_count = Photo::countAll();
 
+    $paginate = new Paginate($page, $items_per_page, $items_total_count);
+
+    $sql  = "SELECT * FROM photos ";
+    $sql .= " LIMIT {$items_per_page} ";
+    $sql .= " OFFSET {$paginate->offset()}";
+    
+    $photos = Photo::findByQuery($sql);
+
 ?>
 
 
-<?php $photos = Photo::findAll(); ?>
+    <?php // $photos = Photo::findAll(); ?>
 
         <div class="row">
 
