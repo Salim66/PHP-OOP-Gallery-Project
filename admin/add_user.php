@@ -21,8 +21,8 @@
             $user->password   = $_POST['password'];
 
             $user->setFile($_FILES['user_image']);
-
-            $user->saveUserAndImage();
+            $user->uploadPhoto();
+            $user->save();
         }
 
     }

@@ -116,7 +116,7 @@ class Photo extends DBObject {
     public function deletePhoto(){
         if($this->delete()){
             $target_path = SITE_ROOT . DS . 'admin' . $this->picturePath();
-            return ($target_path) ? true : false;
+            return unlink($target_path) ? true : false;
         }else {
             return false;
         }

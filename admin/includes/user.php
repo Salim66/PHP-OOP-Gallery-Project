@@ -71,46 +71,46 @@ class User extends DBObject {
         }
     }
 
-    // Create save method
-    public function saveUserAndImage(){
+    // // Create save method
+    // public function saveUserAndImage(){
 
-        // check whether the id has or not
-        if($this->id){
-            $this->update();
-        }else {
+    //     // check whether the id has or not
+    //     if($this->id){
+    //         $this->update();
+    //     }else {
 
-            // Check $errors is not empty
-            if(!empty($this->errors)){
-                return false;
-            }
+    //         // Check $errors is not empty
+    //         if(!empty($this->errors)){
+    //             return false;
+    //         }
 
-            // Check whether the user_image and tmp_name is empty
-            if(empty($this->user_image) || empty($this->tmp_path)){
-                $this->errors[] = 'The file was not available';
-                return false;
-            }
+    //         // Check whether the user_image and tmp_name is empty
+    //         if(empty($this->user_image) || empty($this->tmp_path)){
+    //             $this->errors[] = 'The file was not available';
+    //             return false;
+    //         }
 
-            $target_path = SITE_ROOT . DS . 'admin' . DS . $this->upload_directory . DS . $this->user_image;
+    //         $target_path = SITE_ROOT . DS . 'admin' . DS . $this->upload_directory . DS . $this->user_image;
 
-            // check whether the file already has 
-            if(file_exists($target_path)){
-                $this->errors[] = 'The file {$this->user_image} already exists';
-                return false;
-            }
+    //         // check whether the file already has 
+    //         if(file_exists($target_path)){
+    //             $this->errors[] = 'The file {$this->user_image} already exists';
+    //             return false;
+    //         }
 
-            // upload a file
-            if(move_uploaded_file($this->tmp_path, $target_path)){
-                if($this->create()){
-                    unset($this->tmp_path);
-                    return true;
-                }
-            }else {
-                $this->errors[] = 'The file directory probabily does not have permission';
-                return false;
-            }
+    //         // upload a file
+    //         if(move_uploaded_file($this->tmp_path, $target_path)){
+    //             if($this->create()){
+    //                 unset($this->tmp_path);
+    //                 return true;
+    //             }
+    //         }else {
+    //             $this->errors[] = 'The file directory probabily does not have permission';
+    //             return false;
+    //         }
 
-        }
-    }
+    //     }
+    // }
 
     
     //  upload user photo
@@ -155,8 +155,8 @@ class User extends DBObject {
      */
     public function deleteUser(){
         if($this->delete()){
-            $target_path = SITE_ROOT.DS.'admin'.$this->imagePathAndPlaceholder();
-            return ($target_path) ? true : false;
+            $target_path = SITE_ROOT.DS.'admin'.DS.$this->upload_directory.DS.$this->user_image;
+            return unlink($target_path) ? true : false;
         }else {
             redirect('users.php');
         }
