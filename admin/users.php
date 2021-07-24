@@ -38,6 +38,7 @@
                             Users
                             <small></small>
                         </h1>
+                        <p class="bg-success p-5 fa-2x"><?php echo $message; ?></p>   
                         <a class="btn btn-primary" href="add_user.php">Add User</a>
                         <div class="col-md-12">
                             <table class="table table-hover table-responsive table-striped">

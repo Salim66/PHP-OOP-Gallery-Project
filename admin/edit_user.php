@@ -28,12 +28,16 @@
 
                 if(empty($_FILES['user_image'])){
                     $user->save();
+                    $session->message("The user has been updated");
+                    redirect("users.php");
                 }else {
                     $user->setFile($_FILES['user_image']);
                     $user->uploadPhoto();
                     $user->save();
+                    $session->message("The user has been updated");
 
-                    redirect("edit_user.php?id=$user->id");
+                    // redirect("edit_user.php?id=$user->id");
+                    redirect("users.php");
                 }
     
             }
@@ -72,10 +76,9 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            users
-                            <small>Subheading</small>
-                        </h1>   
-                        
+                            Edit user 
+                            <small></small>
+                        </h1>                        
                             <div class="col-md-6 user_image_box">
                                 <a href="#" data-toggle="modal" data-target="#photo-Library"><img width="100%" src="<?php echo $user->imagePathAndPlaceholder() ?>" alt=""></a>
                             </div>

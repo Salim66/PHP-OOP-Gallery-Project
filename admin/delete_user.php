@@ -21,9 +21,11 @@
         // chcek user find or not
         if($user != null){
             $user->deleteUser();
+            $session->message("The {$user->username} has been deleted");
             redirect('users.php');
         }else {
             redirect('users.php');
+            $session->message("The {$user->username} has been not deleted");
         }
     
     ?>
