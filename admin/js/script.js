@@ -44,7 +44,9 @@
                 type: "POST",
                 success: function(data){
                     if(!data.error){
-                        alert(data);
+
+                        location.reload();
+                        
                     }
                 }
             });

@@ -2,10 +2,13 @@
 
 <?php
 
+   $user = new User();
 
    // check the ajax reuest
    if(isset($_POST['image_name'])){
-      echo "This is testing pupopose";
+      
+      $user->ajaxSaveUserImage($_POST['user_id'], $_POST['image_name']);
+
    }
 
 

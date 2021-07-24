@@ -71,9 +71,49 @@ class User extends DBObject {
         }
     }
 
-
-
     // Create save method
+    public function saveUserAndImage(){
+
+        // check whether the id has or not
+        if($this->id){
+            $this->update();
+        }else {
+
+            // Check $errors is not empty
+            if(!empty($this->errors)){
+                return false;
+            }
+
+            // Check whether the user_image and tmp_name is empty
+            if(empty($this->user_image) || empty($this->tmp_path)){
+                $this->errors[] = 'The file was not available';
+                return false;
+            }
+
+            $target_path = SITE_ROOT . DS . 'admin' . DS . $this->upload_directory . DS . $this->user_image;
+
+            // check whether the file already has 
+            if(file_exists($target_path)){
+                $this->errors[] = 'The file {$this->user_image} already exists';
+                return false;
+            }
+
+            // upload a file
+            if(move_uploaded_file($this->tmp_path, $target_path)){
+                if($this->create()){
+                    unset($this->tmp_path);
+                    return true;
+                }
+            }else {
+                $this->errors[] = 'The file directory probabily does not have permission';
+                return false;
+            }
+
+        }
+    }
+
+    
+    //  upload user photo
     public function uploadPhoto(){
 
             // Check $errors is not empty
@@ -122,6 +162,17 @@ class User extends DBObject {
         }
     }
 
+
+    /**
+     * image update by ajax
+     */
+    public function ajaxSaveUserImage($user_id, $user_image){
+
+        $this->id         = $user_id;
+        $this->user_image = $user_image;
+        $this->save();
+
+    }
 
 
 
