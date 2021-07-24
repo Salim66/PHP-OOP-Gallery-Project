@@ -53,4 +53,22 @@
         </div>
         <!-- /.row -->
 
+        <div class="row">
+            <ul class="pager">
+            <?php 
+            
+                if($paginate->pageTotal() > 1){
+                    if($paginate->hasNext()){
+                       echo "<li class='next'><a href=''>Next</a></li>";
+                    }
+                }
+            
+            ?>
+
+
+                
+                <!-- <li class='previous'><a href=''>Previous</a></li> -->
+            </ul>
+        </div>
+
         <?php include("includes/footer.php"); ?>
