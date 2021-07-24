@@ -56,18 +56,30 @@
         <div class="row">
             <ul class="pager">
             <?php 
-            
+               
                 if($paginate->pageTotal() > 1){
+
+                    // next link
                     if($paginate->hasNext()){
                        echo "<li class='next'><a href='index.php?page={$paginate->next()}'>Next</a></li>";
                     }
+
+                    for($i=1; $i <= $paginate->pageTotal(); $i++){
+                        if($i == $paginate->current_page){
+                            echo "<li class='active'><a href='index.php?page={$i}'>{$i}</a></li>";
+                        }else {
+                            echo "<li><a href='index.php?page={$i}'>{$i}</a></li>";
+                        }
+                    }
+
+
+                    // previous link
+                    if($paginate->hasPrevious()){
+                        echo "<li class='previous'><a href='index.php?page={$paginate->previous()}'>Previous</a></li>";
+                     }
+
                 }
 
-                if($paginate->pageTotal() > 1){
-                    if($paginate->hasPrevious()){
-                       echo "<li class='previous'><a href='index.php?page={$paginate->previous()}'>Previous</a></li>";
-                    }
-                }
             
             ?>
 
