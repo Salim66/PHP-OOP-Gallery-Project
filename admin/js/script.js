@@ -12,7 +12,8 @@
         let image_src, image_src_splitted, image_name;
 
         // Photo library Modal Script
-        $('.modal_thumbnails').click(function(){
+        $('.modal_thumbnails').click(function(e){
+            e.preventDefault();
             // Enabled Button
             $('#set_user_image').prop('disabled', false);
 
@@ -43,7 +44,7 @@
                 type: "POST",
                 success: function(data){
                     if(!data.error){
-                        alert(image_name);
+                        alert(data);
                     }
                 }
             });
