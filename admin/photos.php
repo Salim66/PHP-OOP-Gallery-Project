@@ -38,6 +38,7 @@
                             Photos
                             <small></small>
                         </h1>
+                        <p class="bg-success p-5 fa-2x"><?php echo $message; ?></p>  
                         <div class="col-md-12">
                             <table class="table table-hover table-responsive table-striped">
                                 <thead>

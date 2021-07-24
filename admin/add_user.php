@@ -23,6 +23,8 @@
             $user->setFile($_FILES['user_image']);
             $user->uploadPhoto();
             $user->save();
+            $session->message("The {$user->username} has been added successfully ): ");
+            redirect('users.php');
         }
 
     }

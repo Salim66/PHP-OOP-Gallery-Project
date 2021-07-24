@@ -21,7 +21,7 @@
         // chcek comment find or not
         if($comment != null){
             $comment->delete();
-            $session->message("The comment with {$comment->id} has been deleted");
+            $session->message("The comment with id {$comment->id} has been deleted");
             redirect("comments_photo.php?id={$comment->photo_id}");
         }else {
             redirect("comments_photo.php?id={$comment->photo_id}");

@@ -21,9 +21,11 @@
         // chcek user find or not
         if($photo != null){
             $photo->deletePhoto();
+            $session->message("The {$photo->filename} has been deleted");
             redirect('photos.php');
         }else {
             redirect('photos.php');
+            $session->message("The {$photo->filename} has been not deleted");
         }
     
     ?>
