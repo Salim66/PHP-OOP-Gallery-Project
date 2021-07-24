@@ -1,5 +1,17 @@
 <?php include("includes/header.php"); ?>
 
+
+<?php
+
+    $page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
+
+    $items_per_page = 4;
+
+    $items_total_count = Photo::countAll();
+
+?>
+
+
 <?php $photos = Photo::findAll(); ?>
 
         <div class="row">
@@ -10,8 +22,8 @@
 
                     <?php foreach($photos as $photo): ?>                        
                         <div class="col-xs-6 col-md-3">
-                            <a href="photo.php?id=<?php echo $photo->id; ?>" class="thumbnail">
-                                <img class="img-responsive home-page-photo" src="admin/<?php echo $photo->picturePath(); ?>" alt="">
+                            <a href="photo.php?id=<?php echo $photo->id; ?>">
+                                <img class="img-responsive home-page-photo thumbnail" src="admin/<?php echo $photo->picturePath(); ?>" alt="">
                             </a>
                         </div>                        
                     <?php endforeach; ?>
