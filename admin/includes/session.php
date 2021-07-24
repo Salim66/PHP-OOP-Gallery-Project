@@ -85,3 +85,4 @@ class Session {
 
 // Instansiate of class
 $session = new Session();
+$message = $session->message();
