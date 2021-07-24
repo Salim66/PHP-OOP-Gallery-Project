@@ -30,6 +30,21 @@ class Paginte {
         return ceil($this->items_total_count/$this->items_per_page);
     }
 
+    // Create has previous method
+    public function hasPrevious(){
+        return $this->previous() >= 1 ? true : false;
+    }
+
+    // Create has next method
+    public function hasNext(){
+        return $this->next() <= $this->pageTotal() ? true : false;
+    }
+
+    // Create offset method
+    public function offset(){
+        return ($this->current_page - 1) * $this->items_per_page;
+    }
+
 }
 
 
