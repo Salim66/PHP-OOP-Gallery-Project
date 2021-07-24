@@ -6,18 +6,17 @@
 
             <!-- Blog Entries Column -->
             <div class="col-md-12">
+                <div class="thumbnail row">
 
-                <?php foreach($photos as $photo): ?>
-                    <div class="thumbnail row">
+                    <?php foreach($photos as $photo): ?>                        
                         <div class="col-xs-6 col-md-3">
                             <a href="" class="thumbnail">
-                                <img src="" alt="">
+                                <img src="admin/<?php echo $photo->picturePath(); ?>" alt="">
                             </a>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-         
+                        </div>                        
+                    <?php endforeach; ?>
 
+                </div>
             </div>
 
 
