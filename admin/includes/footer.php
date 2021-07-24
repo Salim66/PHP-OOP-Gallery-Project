@@ -10,6 +10,9 @@
     <!-- WYSIWYG -->
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
+    <!-- Dropzone JS -->
+    <script src="js/dropzone.js"></script>
+
     <script src="js/script.js"></script>
 
     <script type="text/javascript">

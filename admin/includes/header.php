@@ -33,6 +33,9 @@
     <!-- Google Pic Chart -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+    <!-- Dropzone CSS -->
+    <link href="css/dropzone.css" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
 
