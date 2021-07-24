@@ -44,9 +44,11 @@
                 type: "POST",
                 success: function(data){
                     if(!data.error){
+                        $('.user_image_box a img').prop('src', data);
 
-                        location.reload();
-                        
+
+                        // location.reload();
+
                     }
                 }
             });

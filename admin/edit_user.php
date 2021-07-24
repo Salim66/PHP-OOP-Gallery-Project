@@ -76,7 +76,7 @@
                             <small>Subheading</small>
                         </h1>   
                         
-                            <div class="col-md-6">
+                            <div class="col-md-6 user_image_box">
                                 <a href="#" data-toggle="modal" data-target="#photo-Library"><img width="100%" src="<?php echo $user->imagePathAndPlaceholder() ?>" alt=""></a>
                             </div>
 
