@@ -123,12 +123,17 @@ class Photo extends DBObject {
     }
 
 
+    // Sidebar data
+    public static function displaySidebarData($photo_id){
+        $photo = Photo::findById($photo_id);
 
+        $output  = "<a class='thumbnail' href='#'><img width='100' src='{$photo->picturePath()}'></a>";
+        $output .= "<p>{$photo->filename}</p>";
+        $output .= "<p>{$photo->type}</p>";
+        $output .= "<p>{$photo->size}</p>";
 
-
-
-
-
+        echo $output;
+    }
 
 
 }

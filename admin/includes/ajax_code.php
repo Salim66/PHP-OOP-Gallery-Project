@@ -13,7 +13,9 @@
 
    // check sidebar ajax request
    if(isset($_POST['photo_id'])){
-      echo "IT Works";
+
+     Photo::displaySidebarData($_POST['photo_id']);
+
    }
 
 
