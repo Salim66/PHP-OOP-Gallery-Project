@@ -59,7 +59,13 @@
             
                 if($paginate->pageTotal() > 1){
                     if($paginate->hasNext()){
-                       echo "<li class='next'><a href=''>Next</a></li>";
+                       echo "<li class='next'><a href='index.php?page={$paginate->next()}'>Next</a></li>";
+                    }
+                }
+
+                if($paginate->pageTotal() > 1){
+                    if($paginate->hasPrevious()){
+                       echo "<li class='previous'><a href='index.php?page={$paginate->previous()}'>Previous</a></li>";
                     }
                 }
             
