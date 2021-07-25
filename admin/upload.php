@@ -14,6 +14,7 @@
 
         // instantiate a Photo class
         $photo = new Photo();
+        $photo->user_id = $_SESSION['user_id'];
         $photo->title = $_POST['title'];
         $photo->setFile($_FILES['file']);
 
