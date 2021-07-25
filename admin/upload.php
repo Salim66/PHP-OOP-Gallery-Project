@@ -24,7 +24,7 @@
             $message = join("<br>", $photo->errors);
         }
 
-    }
+    }  
 
 
 

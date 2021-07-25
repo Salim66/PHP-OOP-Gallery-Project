@@ -67,6 +67,13 @@
 
         });
 
+
+        // Edit photo sidebar
+        $(".photo-info-box").click(function(e){
+            $(".inside").slideToggle("fast");
+            $("#toggle").toggleClass('glyphicon-menu-down glyphicon, glyphicon-menu-up');
+        });
+
     });
 
 })(jQuery);
