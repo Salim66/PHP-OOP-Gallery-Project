@@ -143,5 +143,13 @@ class User extends DBObject {
     }
 
 
+    /**
+     * Find By Specific user gallery
+     */
+    public function photos(){
+        return Photo::findByQuery("SELECT * FROM photos WHERE user_id =".$this->id);
+    }
+
+
 
 }

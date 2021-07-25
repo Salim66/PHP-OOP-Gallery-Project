@@ -10,7 +10,10 @@
 
 <?php 
     // Get all data 
-    $photos = Photo::findAll();
+    // $photos = Photo::findAll();
+
+    // find by specific user gallery
+    $photos = User::findById($_SESSION['user_id'])->photos();
 
 ?>
 

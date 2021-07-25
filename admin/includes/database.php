@@ -7,12 +7,13 @@ class Database {
 
     // create public property
     public $connection;
+    public $db;
 
 
     // create constructor because we need to automatic connection to database 
     function __construct()
     {
-        $this->open_db_connection();
+        $this->db = $this->open_db_connection();
     }
 
     // database connection
@@ -24,6 +25,8 @@ class Database {
         if($this->connection->connect_errno){
             die('Database connection failed badly' . $this->connection->connect_errno );
         }
+
+        return $this->connection;
     }
 
 
@@ -31,7 +34,7 @@ class Database {
     public function query($sql){
         
         // $result = mysqli_query($this->connection, $sql);
-        $result = $this->connection->query($sql);
+        $result = $this->db->query($sql);
 
         $this->confirm_query($result);
 
@@ -46,7 +49,7 @@ class Database {
     private function confirm_query($result){
         // check whether the query success or not
         if(!$result){
-            die("Query Failed");
+            die("Query Failed" . $this->db->error);
         }
     }
 
@@ -57,7 +60,7 @@ class Database {
      */
     public function escape_string($string){
         // $escape_string = mysqli_real_escape_string($this->connection, $string);
-        $escape_string = $this->connection->real_escape_string($string);
+        $escape_string = $this->db->real_escape_string($string);
         return $escape_string;
     }
 
@@ -66,7 +69,7 @@ class Database {
      * get insert last id 
      */
     public function theInsertId(){
-        return mysqli_insert_id($this->connection); // Returns the auto generated id used in the last query
+        return mysqli_insert_id($this->db); // Returns the auto generated id used in the last query
     }
 
     
