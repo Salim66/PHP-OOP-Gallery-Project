@@ -74,6 +74,13 @@
             $("#toggle").toggleClass('glyphicon-menu-down glyphicon, glyphicon-menu-up');
         });
 
+
+        // Delete function
+        $(".delete_link").click(function(e){
+            return confirm("Are you sure you want to delete this item ?");
+        });
+
+
     });
 
 })(jQuery);
